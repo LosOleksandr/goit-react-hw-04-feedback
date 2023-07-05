@@ -6,12 +6,12 @@ import {
   FeedbackItem,
 } from './FeedbackOptions.styled.';
 
-export default function FeedbackOptions({ options, onLeaveFeedback }) {
+export default function FeedbackOptions({ options, onClick }) {
   return (
     <FeedbackList>
       {options.map(name => (
         <FeedbackItem key={name}>
-          <FeedbackOption name={name} onClick={onLeaveFeedback} type="button">
+          <FeedbackOption name={name} onClick={onClick} type="button">
             {name}
           </FeedbackOption>
         </FeedbackItem>
@@ -21,6 +21,6 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number).isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
